@@ -10,19 +10,17 @@
 #define BSPC	KC_BSPC
 #define DEL		KC_DEL
 #define TAB		KC_TAB
-#define LEFT 	KC_LEFT
-#define UP		KC_UP
-#define DOWN	KC_DOWN
-#define RIGHT	KC_RIGHT
+#define _SX 	KC_LEFT
+#define _UP		KC_UP
+#define _DN	    KC_DOWN
+#define _RT 	KC_RIGHT
 #define BT		BT_HST1
 
-// Left-hand home row mods
 #define HR_1  	LCMD_T(KC_A)
 #define HR_2  	LCTL_T(KC_S)
 #define HR_3  	LALT_T(KC_D)
 #define HR_4  	LSFT_T(KC_F)
 
-// Right-hand home row mods
 #define HR_7  	RSFT_T(KC_J)
 #define HR_8  	RCTL_T(KC_K)
 #define HR_9  	LALT_T(KC_L)

@@ -6,7 +6,7 @@ enum custom_keycodes {
     REDO,
     SAVE,
     SW_TAB,
-    FILE,
+    SRC,
     TERM,
     RUN,
     HYPR,
@@ -55,7 +55,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         register_code(KC_TAB);
         return false;
         break;
-      case FILE:
+      case SRC:
         SEND_STRING(SS_DOWN(X_LCMD)SS_DOWN(X_LSFT)SS_TAP(X_R)SS_UP(X_LCMD)SS_UP(X_LSFT));
         return false;
         break;
