@@ -32,21 +32,21 @@ td_state_t cur_dance(tap_dance_state_t *state) {
 }
   
 enum {
-	TD__F,
-    TD__C,
-    TD__D,
-    TD__S,
-    TD__RB,
-    TD__SB,
-    TD__CB,
-    TD__E,
-    TD__SCLN,
-    TD__SLSH,
-    TD__COMM,
-    TD__DOT,
-    TD__QT,
-    TD__DQT,
-    TD__PIPE,
+	TD_F,
+    TD_C,
+    TD_D,
+    TD_S,
+    TD_RB,
+    TD_SB,
+    TD_CB,
+    TD_E,
+    TD_SCLN,
+    TD_SLSH,
+    TD_COMM,
+    TD_DOT,
+    TD_QT,
+    TD_DQT,
+    TD_PIPE,
 };
 
 static td_tap_t td_f_state = {
@@ -59,7 +59,7 @@ void f_finished(tap_dance_state_t *state, void *user_data) {
     switch (td_f_state.state) {
         case TD_SINGLE_TAP: SEND_STRING(SS_LCMD("f")); break;
         case TD_SINGLE_HOLD: register_code(SFT); break;
-        case TD_DOUBLE_TAP: SEND_STRING(SS_DOWN(X_LSFT)SS_DOWN(X_LCMD)SS_TAP(X_F)SS_UP(X_LCMD)SS_UP(X_LSFT)); break;
+        case TD_DOUBLE_TAP: SEND_STRING(SS_DOWN(JJ)SS_DOWN(X_LCMD)SS_TAP(X_F)SS_UP(X_LCMD)SS_UP(X_LSFT)); break;
         case TD_DOUBLE_SINGLE_TAP: SEND_STRING(SS_DOWN(X_LSFT)SS_DOWN(X_LCMD)SS_TAP(X_F)SS_UP(X_LCMD)SS_UP(X_LSFT)); break;
         default: break;
     }
@@ -337,19 +337,19 @@ void pipe_finished(tap_dance_state_t *state, void *user_data) {
 }
 
 tap_dance_action_t tap_dance_actions[] = {
-  	[TD__F] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, f_finished, f_reset),
-    [TD__C] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, c_finished, NULL),
-    [TD__D] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, d_finished, d_reset),
-    [TD__S] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, s_finished, s_reset),
-    [TD__RB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, rb_finished, NULL),
-    [TD__SB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, sb_finished, NULL),
-    [TD__CB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, cb_finished, NULL),
-    [TD__E] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, e_finished, NULL),
-    [TD__SCLN] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, scln_finished, NULL),
-    [TD__SLSH] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, slsh_finished, NULL),
-    [TD__COMM] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, comm_finished, NULL),
-    [TD__DOT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dot_finished, NULL),
-    [TD__QT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, quot_finished, NULL),
-    [TD__DQT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dquot_finished, NULL),
-    [TD__PIPE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, pipe_finished, NULL),
+  	[TD_F] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, f_finished, f_reset),
+    [TD_C] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, c_finished, NULL),
+    [TD_D] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, d_finished, d_reset),
+    [TD_S] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, s_finished, s_reset),
+    [TD_RB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, rb_finished, NULL),
+    [TD_SB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, sb_finished, NULL),
+    [TD_CB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, cb_finished, NULL),
+    [TD_E] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, e_finished, NULL),
+    [TD_SCLN] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, scln_finished, NULL),
+    [TD_SLSH] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, slsh_finished, NULL),
+    [TD_COMM] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, comm_finished, NULL),
+    [TD_DOT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dot_finished, NULL),
+    [TD_QT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, quot_finished, NULL),
+    [TD_DQT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dquot_finished, NULL),
+    [TD_PIPE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, pipe_finished, NULL),
 }; 

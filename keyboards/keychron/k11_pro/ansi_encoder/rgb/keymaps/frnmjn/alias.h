@@ -27,21 +27,21 @@
 #define HR_10   RCMD_T(KC_SCLN)
 
 
-#define TD_F	TD(TD__F)
-#define TD_C	TD(TD__C)
-#define TD_D	TD(TD__D)
-#define TD_S	TD(TD__S)
-#define TD_RB	TD(TD__RB)
-#define TD_SB	TD(TD__SB)
-#define TD_CB	TD(TD__CB)
-#define TD_E	TD(TD__E)
-#define TD_SCLN	TD(TD__SCLN)
-#define TD_SLSH	TD(TD__SLSH)
-#define TD_COMM	TD(TD__COMM)
-#define TD_DOT	TD(TD__DOT)
-#define TD_QT	TD(TD__QT)
-#define TD_DQT	TD(TD__DQT)
-#define TD_PIPE	TD(TD__PIPE)
+#define T_F		TD(TD_F)
+#define T_C		TD(TD_C)
+#define T_D		TD(TD_D)
+#define T_S		TD(TD_S)
+#define T_RB	TD(TD_RB)
+#define T_SB	TD(TD_SB)
+#define T_CB	TD(TD_CB)
+#define T_E		TD(TD_E)
+#define T_SCLN	TD(TD_SCLN)
+#define T_SLSH	TD(TD_SLSH)
+#define T_COMM	TD(TD_COMM)
+#define T_DOT	TD(TD_DOT)
+#define T_QT	TD(TD_QT)
+#define T_DQT	TD(TD_DQT)
+#define T_PIPE	TD(TD_PIPE)
 
 #define GONOR	LT(NOR, SPC)
 #define GOSYM	MO(SYM)
@@ -77,5 +77,4 @@ enum layers {
 	 NOR,
 	 SYM,
 	 NUM,
-	 OTH,
 };

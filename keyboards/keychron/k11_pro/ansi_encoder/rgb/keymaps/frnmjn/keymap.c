@@ -20,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [NOR] = LAYOUT_69_ansi(
         NO,   NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,      NO,      NO,      NO,      NO,
-        NO,   QUIT,   EXIT,   SW_TAB, SRC,    NO,             TD_QT,  UNDS,   TD_DQT, AMPR,    TD_PIPE,    NO,      NO,      NO,      NO,
+        NO,   NO,     EXIT,   SW_TAB, SRC,    NO,             TD_QT,  UNDS,   TD_DQT, AMPR,    TD_PIPE,    NO,      NO,      NO,      NO,
         NO,   HOME,   TD_S,   TD_D,   TD_F,   RUN,            _SX,    _DN,    _UP,    _DN,     END,     NO,      NO,      NO,
         NO,   UNDO,   CUT,    TD_C,   PASTE,  REDO,   NO,     EXLM,   TD_RB,  TD_SB,  TD_CB,   PERC,    NO,      NO,
         NO,   NO,     NO,     NO,             NO,     NO,     DEL,    NO,     NO,     NO,      NO
@@ -49,7 +49,7 @@ bool caps_word_press_user(uint16_t keycode) {
     switch (keycode) {
         // Keycodes that continue Caps Word, with shift applied.
         case KC_A ... KC_Z:
-        case TD_E:
+        case T_E:
             add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
             return true;
 
@@ -67,9 +67,18 @@ bool caps_word_press_user(uint16_t keycode) {
 }
 
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
-    return true;
+    switch(keycode) {
+        case HR_1:
+        case HR_2:
+        case HR_3:
+        case HR_4:
+        case HR_7:
+        case HR_8:
+        case HR_9:
+        case HR_10:
+            return true;
+        default:
+            return false;
+    }
 }
  
-bool get_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
-   return true;
-}

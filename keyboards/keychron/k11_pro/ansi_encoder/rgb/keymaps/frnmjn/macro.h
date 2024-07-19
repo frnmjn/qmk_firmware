@@ -7,13 +7,11 @@ enum custom_keycodes {
     SAVE,
     SW_TAB,
     SRC,
-    TERM,
     RUN,
     HYPR,
     EXIT,
     HOME,
     END,
-    QUIT,
 };
 
 bool is_ctl_tab_active = false;
@@ -77,10 +75,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
       case END:
         SEND_STRING(SS_DOWN(X_LCMD)SS_TAP(X_RIGHT)SS_UP(X_LCMD));
-        return false;
-        break;
-      case QUIT:
-        SEND_STRING(SS_LCMD("q"));
         return false;
         break;
     }
