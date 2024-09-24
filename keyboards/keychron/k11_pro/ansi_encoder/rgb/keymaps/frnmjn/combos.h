@@ -15,6 +15,7 @@ enum combos{
   C_UNDS,
   C_BSLS,
   C_MINS,
+  C_AUTOCORRECT,
 	COMBO_LENGTH
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
@@ -35,6 +36,7 @@ const uint16_t PROGMEM c_regex[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM c_unds[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM c_bsls[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM c_mins[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM c_autocorrect[] = {KC_W, T_E, KC_R, COMBO_END};
 
 combo_t key_combos[] = {
   [C_TAB] = COMBO(c_tab, TAB),
@@ -53,6 +55,7 @@ combo_t key_combos[] = {
   [C_UNDS] = COMBO(c_unds, UNDS),
   [C_BSLS] = COMBO(c_bsls, BSLS),
   [C_MINS] = COMBO(c_mins, MINS),
+  [C_AUTOCORRECT] = COMBO_ACTION(c_autocorrect),
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
@@ -95,6 +98,12 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     case C_AT:
       if (pressed) {
 		    SEND_STRING("@");
+      }
+      break;
+    case C_AUTOCORRECT:
+      if (pressed) {
+        autocorrect_enable();
+		    SEND_STRING("Autocorrect ON");
       }
       break;
   }

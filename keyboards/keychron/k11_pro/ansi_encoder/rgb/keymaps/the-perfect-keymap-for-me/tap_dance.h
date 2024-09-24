@@ -33,12 +33,6 @@ td_state_t cur_dance(tap_dance_state_t *state) {
   
 enum {
     TD_RB,
-    TD_SB,
-    TD_CB,
-    TD_E,
-    TD_SLSH,
-    TD_QT,
-    TD_DQT,
     TD_PIPE,
     TD_PERC,
     TD_HOME,
@@ -61,121 +55,6 @@ void rb_finished(tap_dance_state_t *state, void *user_data) {
         default: break;
     }
 }
-
-static td_tap_t td_sb_state = {
-    .is_press_action = true,
-    .state = TD_NONE
-};
-
-void sb_finished(tap_dance_state_t *state, void *user_data) {
-    td_sb_state.state = cur_dance(state);
-    switch (td_sb_state.state) {
-        case TD_SINGLE_TAP: SEND_STRING("["); break;
-        case TD_SINGLE_HOLD: SEND_STRING("]"); break;
-        case TD_DOUBLE_TAP:
-        case TD_DOUBLE_SINGLE_TAP:
-        case TD_DOUBLE_HOLD:
-            SEND_STRING("[]" SS_TAP(X_LEFT)); break;
-        default: break;
-    }
-}
-
-static td_tap_t td_cb_state = {
-    .is_press_action = true,
-    .state = TD_NONE
-};
-
-void cb_finished(tap_dance_state_t *state, void *user_data) {
-    td_cb_state.state = cur_dance(state);
-    switch (td_cb_state.state) {
-        case TD_SINGLE_TAP: SEND_STRING("{"); break;
-        case TD_SINGLE_HOLD: SEND_STRING("}"); break;
-        case TD_DOUBLE_TAP:
-        case TD_DOUBLE_SINGLE_TAP:
-        case TD_DOUBLE_HOLD:
-            SEND_STRING("{}" SS_TAP(X_LEFT)); break;
-        default: break;
-    }
-}
-
-static td_tap_t td_e_state = {
-    .is_press_action = true,
-    .state = TD_NONE
-};
-
-void e_finished(tap_dance_state_t *state, void *user_data) {
-    td_e_state.state = cur_dance(state);
-    switch (td_e_state.state) {
-        case TD_SINGLE_TAP: SEND_STRING("e"); break;
-        case TD_SINGLE_HOLD: SEND_STRING("E"); break;
-        case TD_DOUBLE_TAP:
-        case TD_DOUBLE_SINGLE_TAP:
-            SEND_STRING("ee"); break;
-        case TD_DOUBLE_HOLD:
-            SEND_STRING(SS_TAP(X_LBRC)); break;
-        default: break;
-    }
-}
-
-static td_tap_t td_slsh_state = {
-    .is_press_action = true,
-    .state = TD_NONE
-};
-
-void slsh_finished(tap_dance_state_t *state, void *user_data) {
-    td_slsh_state.state = cur_dance(state);
-    switch (td_slsh_state.state) {
-        case TD_SINGLE_TAP: SEND_STRING("/"); break;
-        case TD_SINGLE_HOLD: SEND_STRING("?"); break;
-        case TD_DOUBLE_TAP:
-        case TD_DOUBLE_SINGLE_TAP: 
-            SEND_STRING("//"); break;
-        case TD_DOUBLE_HOLD: SEND_STRING("\\"); break;
-        default: break;
-    }
-}
-
-static td_tap_t td_quot_state = {
-    .is_press_action = true,
-    .state = TD_NONE
-};
-
-void quot_finished(tap_dance_state_t *state, void *user_data) {
-    td_quot_state.state = cur_dance(state);
-    switch (td_quot_state.state) {
-        case TD_SINGLE_TAP: SEND_STRING("'"); break;
-        case TD_SINGLE_HOLD:
-        case TD_DOUBLE_TAP:
-        case TD_DOUBLE_SINGLE_TAP:
-            SEND_STRING("''" SS_TAP(X_LEFT)); break;
-        case TD_DOUBLE_HOLD:
-            SEND_STRING("`"); break;
-        default: break;
-    }
-}
-
-static td_tap_t td_dquot_state = {
-    .is_press_action = true,
-    .state = TD_NONE
-};
-
-void dquot_finished(tap_dance_state_t *state, void *user_data) {
-    td_dquot_state.state = cur_dance(state);
-    switch (td_dquot_state.state) {
-        case TD_SINGLE_TAP: SEND_STRING("\""); break;
-        case TD_SINGLE_HOLD: 
-        case TD_DOUBLE_TAP:
-        case TD_DOUBLE_SINGLE_TAP:
-        case TD_DOUBLE_HOLD:
-            SEND_STRING("\"\"" SS_TAP(X_LEFT)); break;
-        default: break;
-    }
-}
-
-static td_tap_t td_pipe_state = {
-    .is_press_action = true,
-    .state = TD_NONE
-};
 
 void pipe_finished(tap_dance_state_t *state, void *user_data) {
     td_pipe_state.state = cur_dance(state);

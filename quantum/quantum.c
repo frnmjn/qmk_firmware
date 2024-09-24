@@ -357,6 +357,9 @@ bool process_record_quantum(keyrecord_t *record) {
 #ifdef LEADER_ENABLE
             process_leader(keycode, record) &&
 #endif
+#ifdef AUTOCORRECT_ENABLE
+            process_autocorrect(keycode, record) &&
+#endif
 #ifdef AUTO_SHIFT_ENABLE
             process_auto_shift(keycode, record) &&
 #endif
@@ -380,9 +383,6 @@ bool process_record_quantum(keyrecord_t *record) {
 #endif
 #ifdef PROGRAMMABLE_BUTTON_ENABLE
             process_programmable_button(keycode, record) &&
-#endif
-#ifdef AUTOCORRECT_ENABLE
-            process_autocorrect(keycode, record) &&
 #endif
 #ifdef TRI_LAYER_ENABLE
             process_tri_layer(keycode, record) &&

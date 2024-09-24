@@ -60,6 +60,9 @@
 #define REDO	SCMD(KC_Z)
 #define HOME	LCMD(KC_LEFT)
 #define END		LCMD(KC_RIGHT)
+#define CRTLW	LCTL(KC_W)
+#define CRTLE	LCTL(KC_E)
+#define CRTLB	LCTL(KC_B)
 
 #define T_RB	TD(TD_RB)
 #define T_SB	TD(TD_SB)

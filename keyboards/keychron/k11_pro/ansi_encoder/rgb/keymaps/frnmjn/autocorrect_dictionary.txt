@@ -1,0 +1,13 @@
+:thier:         -> their
+:fitler:        -> filter
+:lenght:        -> length
+:ouput:         -> output
+:widht:         -> width
+:becouse:       -> because
+:iam:           -> I'm
+:ill:           -> I'll
+:ihave:         -> I've
+:dont:          -> don't
+:isntit:        -> isn't it?
+:youare:        -> You're
+

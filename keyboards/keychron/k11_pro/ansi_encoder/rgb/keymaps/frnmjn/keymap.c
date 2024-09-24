@@ -3,8 +3,9 @@
 #include "sendstring_italian_mac_ansi.h"
 #include "alias.h"
 #include "tap_dance.h"
-#include "combo.h"
-#include "macro.h"
+#include "combos.h"
+#include "macros.h"
+
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -18,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [NOR] = LAYOUT_69_ansi(
         NO,   NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,      NO,      NO,      NO,      NO,
-        NO,   NO,     NO,     SW_TAB, SRC,    PGUP,           NO,     T_QT,   T_DQT,  T_PIPE,  NO,      NO,      NO,      NO,      NO,
+        NO,   SRC,    CRTLW,  CRTLE,  CRTLB,  PGUP,           NO,     T_QT,   T_DQT,  T_PIPE,  NO,      NO,      NO,      NO,      NO,
         NO,   T_HOME, ALT,    CTL,    SFT,    PGDN,           _SX,    _DN,    _UP,    _DX,     END,     NO,      NO,      NO,
         NO,   UNDO,   CUT,    COPY,   PASTE,  REDO,   NO,     NO,     T_RB,   T_SB,   T_CB,    T_PERC,  NO,      NO,
         NO,   NO,     NO,     NO,             NO,     NO,     DEL,    NO,     NO,     NO,      NO
@@ -34,6 +35,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 // clang-format on
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case T_E:
+        case COMM:
+        case DOT:
+        case SLSH:
+        case T_RB:
+        case T_SB:
+        case T_CB:
+        case T_PERC:
+        case T_QT:
+        case T_DQT:
+        case T_PIPE:
+            return 200;
+        default:
+            return TAPPING_TERM;
+    }
+}
 
 bool caps_word_press_user(uint16_t keycode) {
     switch (keycode) {
@@ -140,4 +160,19 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
             unregister_code16((IS_RETRO(keycode)) ? keycode & 0xFF : keycode);
     }
 }
- 
+
+bool process_autocorrect_user(uint16_t *keycode, keyrecord_t *record, uint8_t *typo_buffer_size, uint8_t *mods) {
+    // See quantum_keycodes.h for reference on these matched ranges.
+     switch (*keycode) {
+        case T_E:
+            *keycode = KC_E;
+            break;
+        case HR_9:
+            *keycode = KC_L;
+        default:
+            *keycode &= 0xFF; // Get the basic keycode.
+            // SEND_STRING("qui");
+     }
+     return true;
+}
+
