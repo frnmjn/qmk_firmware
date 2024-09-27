@@ -33,9 +33,6 @@ td_state_t cur_dance(tap_dance_state_t *state) {
   
 enum {
     TD_RB,
-    TD_PIPE,
-    TD_PERC,
-    TD_HOME,
 };
 
 static td_tap_t td_rb_state = {
@@ -56,78 +53,6 @@ void rb_finished(tap_dance_state_t *state, void *user_data) {
     }
 }
 
-void pipe_finished(tap_dance_state_t *state, void *user_data) {
-    td_pipe_state.state = cur_dance(state);
-    switch (td_pipe_state.state) {
-        case TD_SINGLE_TAP: SEND_STRING("|"); break;
-        case TD_SINGLE_HOLD: 
-            SEND_STRING("|>" SS_TAP(X_SPC)); break;
-        case TD_DOUBLE_TAP:
-        case TD_DOUBLE_SINGLE_TAP:
-        case TD_DOUBLE_HOLD:
-            SEND_STRING("||"); break;
-        default: break;
-    }
-}
-
-static td_tap_t td_perc_state = {
-    .is_press_action = true,
-    .state = TD_NONE
-};
-
-void perc_finished(tap_dance_state_t *state, void *user_data) {
-    td_perc_state.state = cur_dance(state);
-    switch (td_perc_state.state) {
-        case TD_SINGLE_TAP:
-            SEND_STRING("%"); break;
-        case TD_SINGLE_HOLD:
-        case TD_DOUBLE_TAP:
-        case TD_DOUBLE_SINGLE_TAP:
-        case TD_DOUBLE_HOLD:
-            SEND_STRING("%{}" SS_TAP(X_LEFT)); break;
-        default: break;
-    }
-}
-
-static td_tap_t td_cmd_state = {
-    .is_press_action = true,
-    .state = TD_NONE
-};
-
-void cmd_finished(tap_dance_state_t *state, void *user_data) {
-    td_cmd_state.state = cur_dance(state);
-    switch (td_cmd_state.state) {
-        case TD_SINGLE_TAP: SEND_STRING(SS_DOWN(X_LCMD) SS_TAP(X_LEFT) SS_UP(X_LCMD)); break;
-        case TD_SINGLE_HOLD:
-        case TD_DOUBLE_TAP:
-        case TD_DOUBLE_SINGLE_TAP:
-        case TD_DOUBLE_HOLD:
-            register_code(CMD); break;
-        default: break;
-    }
-}
-
-void cmd_reset(tap_dance_state_t *state, void *user_data) {
-    td_cmd_state.state = cur_dance(state);
-    switch (td_cmd_state.state) {
-        case TD_SINGLE_HOLD:
-        case TD_DOUBLE_TAP:
-        case TD_DOUBLE_SINGLE_TAP:
-        case TD_DOUBLE_HOLD:
-            unregister_code(CMD); break;
-        default: break;
-    }
-}
-
 tap_dance_action_t tap_dance_actions[] = {
-    [TD_RB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, rb_finished, NULL),
-    [TD_SB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, sb_finished, NULL),
-    [TD_CB] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, cb_finished, NULL),
-    [TD_E] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, e_finished, NULL),
-    [TD_SLSH] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, slsh_finished, NULL),
-    [TD_QT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, quot_finished, NULL),
-    [TD_DQT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dquot_finished, NULL),
-    [TD_PIPE] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, pipe_finished, NULL),
-    [TD_PERC] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, perc_finished, NULL),
-    [TD_HOME] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, cmd_finished, cmd_reset),
+
 }; 

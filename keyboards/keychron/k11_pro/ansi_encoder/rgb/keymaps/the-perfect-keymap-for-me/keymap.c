@@ -15,11 +15,15 @@
  */
 
 #include QMK_KEYBOARD_H
+#include "keymap_italian_mac_ansi.h"
+#include "sendstring_italian_mac_ansi.h"
+
 #include "macros.h"
 #include "combos.h"
+#include "tap_dance.h"
 
 enum layers{
-    BASE,
+    ZERO,
     ONE,
 };
 
@@ -28,9 +32,12 @@ enum layers{
 #define LM1   LM(ONE, MOD_LCTL)
 #define OSL1  OSL(ONE)
 
+#define T_RB    TD(TD_RB)
+#define T_HOME  TD(TD_HOME)
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [BASE] = LAYOUT_69_ansi(
+    [ZERO] = LAYOUT_69_ansi(
         KC_NO,    KC_NO,      KC_NO,      KC_NO,      KC_NO,   KC_NO,      KC_NO,    KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,    KC_NO,
         KC_NO,    KC_Q,       KC_W,       KC_E,       KC_R,    KC_T,                 KC_Y,     KC_U,    KC_I,    KC_O,    KC_P,     KC_NO,    KC_NO,    KC_NO,    KC_NO,
         KC_NO,    KC_A,       KC_S,       KC_D,       KC_F,    KC_G,                 KC_H,     KC_J,    KC_K,    KC_L,    KC_SCLN,  KC_NO,    KC_NO,    KC_NO,
@@ -39,8 +46,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [ONE] = LAYOUT_69_ansi(
         KC_NO,    KC_NO,      KC_NO,      KC_NO,      KC_NO,   KC_NO,      KC_NO,    KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,    KC_NO,
-        KC_NO,    KC_NO,      KC_NO,      KC_NO,      SW_TAB,  KC_NO,                KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
+        KC_NO,    KC_NO,      KC_NO,      KC_NO,      SW_TAB,  KC_NO,                KC_NO,    IT_UNDS, IT_MINS, KC_NO,   KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,
         KC_NO,    KC_1,       KC_2,       KC_3,       KC_4,    KC_5,                 KC_NO,    KC_6,    KC_7,    KC_8,    KC_9,     KC_0,     KC_NO,    KC_NO,
-        KC_NO,    KC_NO,      KC_NO,      KC_NO,      KC_NO,   KC_NO,      KC_NO,    KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,    KC_NO,      
+        KC_NO,    KC_NO,      KC_NO,      KC_NO,      KC_NO,   KC_NO,      KC_NO,    KC_NO,    T_RB,    KC_LCMD, KC_NO,   KC_NO,    KC_NO,    KC_NO,      
         KC_NO,    KC_NO,      KC_NO,      KC_SPC,              KC_NO,      KC_NO,    KC_BSPC,  KC_NO,   KC_NO,   KC_NO,   KC_NO)
 };
+// clang-format on
+
+bool caps_word_press_user(uint16_t keycode) {
+    switch (keycode) {
+        // Keycodes that continue Caps Word, with shift applied.
+        case KC_A ... KC_Z:
+            add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+            return true;
+
+        // Keycodes that continue Caps Word, without shifting.
+        case KC_1 ... KC_0:
+        case KC_BSPC:
+        case KC_DEL:
+        case IT_MINS:
+        case IT_UNDS:
+            return true;
+
+        default:
+            return false;  // Deactivate Caps Word.
+    }
+}
