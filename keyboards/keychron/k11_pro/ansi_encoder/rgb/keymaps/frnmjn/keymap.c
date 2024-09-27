@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [NOR] = LAYOUT_69_ansi(
         NO,   NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,      NO,      NO,      NO,      NO,
-        NO,   SRC,    CRTLW,  CRTLE,  CRTLB,  PGUP,           NO,     T_QT,   T_DQT,  T_PIPE,  NO,      NO,      NO,      NO,      NO,
+        NO,   NO,     CRTLW,  CRTLE,  CRTLB,  PGUP,           NO,     T_QT,   T_DQT,  T_PIPE,  NO,      NO,      NO,      NO,      NO,
         NO,   T_HOME, ALT,    CTL,    SFT,    PGDN,           _SX,    _DN,    _UP,    _DX,     END,     NO,      NO,      NO,
         NO,   UNDO,   CUT,    COPY,   PASTE,  REDO,   NO,     NO,     T_RB,   T_SB,   T_CB,    T_PERC,  NO,      NO,
         NO,   NO,     NO,     NO,             NO,     NO,     DEL,    NO,     NO,     NO,      NO
@@ -68,7 +68,6 @@ bool caps_word_press_user(uint16_t keycode) {
         case KC_BSPC:
         case KC_DEL:
         case UNDS:
-        case MINS:
             return true;
 
         default:
@@ -92,6 +91,8 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
         case ESC:
         case SLSH:
         case ENT:
+        case MINS:
+        case UNDS:
             return true;
         default:
             return false;
@@ -120,6 +121,12 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
             break;
         case ENT:
             register_code16((!shifted) ? ENT : AST);
+            break;
+        case MINS:
+            if (!shifted) register_code16(MINS); else { register_code16(IT_LABK); register_code16(MINS); }
+            break;
+        case UNDS:
+            if (!shifted) register_code16(UNDS); else { register_code16(MINS); register_code16(IT_RABK); }
             break;
         default:
             if (shifted) {
@@ -152,6 +159,12 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
             break;
         case ENT:
             unregister_code16((!shifted) ? ENT : AST);
+            break;
+        case MINS:
+            if (!shifted) unregister_code16(MINS); else { unregister_code16(IT_LABK); unregister_code16(MINS); }
+            break;
+        case UNDS:
+            if (!shifted) unregister_code16(UNDS); else { unregister_code16(MINS); unregister_code16(IT_RABK); }
             break;
         default:
             // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift

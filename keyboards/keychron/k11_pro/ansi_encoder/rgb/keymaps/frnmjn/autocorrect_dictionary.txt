@@ -6,8 +6,11 @@
 :becouse:       -> because
 :iam:           -> I'm
 :ill:           -> I'll
+:ive:           -> I've
 :ihave:         -> I've
 :dont:          -> don't
-:isntit:        -> isn't it?
+:isnt:          -> isn't
 :youare:        -> You're
+:didnt:         -> didn't
+:doesnt:        -> doesn't
 
