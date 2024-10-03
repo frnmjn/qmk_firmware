@@ -7,10 +7,11 @@
 :iam:           -> I'm
 :ill:           -> I'll
 :ive:           -> I've
-:ihave:         -> I've
-:dont:          -> don't
+:dont:          -> Don't
 :isnt:          -> isn't
 :youare:        -> You're
-:didnt:         -> didn't
-:doesnt:        -> doesn't
-
+:didnt:         -> Didn't
+:doesnt:        -> Doesn't
+:well:           -> We'll
+:weve:           -> We've
+:cant:           -> Can't

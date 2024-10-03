@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [NOR] = LAYOUT_69_ansi(
         NO,   NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,      NO,      NO,      NO,      NO,
-        NO,   NO,     CRTLW,  CRTLE,  CRTLB,  PGUP,           NO,     T_QT,   T_DQT,  T_PIPE,  NO,      NO,      NO,      NO,      NO,
+        NO,   SW_TAB, CRTLW,  CRTLE,  CRTLB,  PGUP,           NO,     T_QT,   T_DQT,  T_PIPE,  NO,      NO,      NO,      NO,      NO,
         NO,   T_HOME, ALT,    CTL,    SFT,    PGDN,           _SX,    _DN,    _UP,    _DX,     END,     NO,      NO,      NO,
         NO,   UNDO,   CUT,    COPY,   PASTE,  REDO,   NO,     NO,     T_RB,   T_SB,   T_CB,    T_PERC,  NO,      NO,
         NO,   NO,     NO,     NO,             NO,     NO,     DEL,    NO,     NO,     NO,      NO
@@ -27,12 +27,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [NUM] = LAYOUT_69_ansi(
         NO,   NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,     NO,      NO,      NO,      NO,      NO,
-        NO,   NO,     NO,     NO,     NO,     NO,             NO,     KC_7,   KC_8,   KC_9,    AST,     NO,      NO,      NO,      NO,
+        NO,   NO,     NO,     NO,     NO,     NO,             NO,     KC_7,   KC_8,   KC_9,    NO,     NO,      NO,      NO,      NO,
         NO,   CMD,    ALT,    CTL,    KC_0,   NO,             MINS,   KC_4,   KC_5,   KC_6,    PLUS,    NO,      NO,      NO,
-        NO,   NO,     NO,     NO,     NO,     NO,     NO,     DOT,    KC_1,   KC_2,   KC_3,    SLSH,    NO,      NO,
+        NO,   NO,     NO,     NO,     NO,     NO,     NO,     NO,     KC_1,   KC_2,   KC_3,    SLSH,    NO,      NO,
         NO,   NO,     NO,     NO,             NO,     NO,     TRNS,   NO,     NO,     NO,      NO
 ),
-
 };
 // clang-format on
 
@@ -93,6 +92,7 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
         case ENT:
         case MINS:
         case UNDS:
+        case TAB:
             return true;
         default:
             return false;
@@ -128,6 +128,9 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
         case UNDS:
             if (!shifted) register_code16(UNDS); else { register_code16(MINS); register_code16(IT_RABK); }
             break;
+        case TAB:
+            if (!shifted) register_code16(TAB); else { register_code16(CMD); register_code16(SFT); register_code16(KC_A); }
+            break;  
         default:
             if (shifted) {
                 add_weak_mods(MOD_BIT(KC_LSFT));
@@ -166,6 +169,9 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
         case UNDS:
             if (!shifted) unregister_code16(UNDS); else { unregister_code16(MINS); unregister_code16(IT_RABK); }
             break;
+        case TAB:
+            if (!shifted) unregister_code16(TAB); else { unregister_code16(CMD); unregister_code16(SFT); unregister_code16(KC_A); }
+            break;  
         default:
             // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
             // The IS_RETRO check isn't really necessary here, always using
@@ -180,12 +186,29 @@ bool process_autocorrect_user(uint16_t *keycode, keyrecord_t *record, uint8_t *t
         case T_E:
             *keycode = KC_E;
             break;
+        case HR_1:
+            *keycode = KC_A;
+            break;
+        case HR_2:
+            *keycode = KC_S;
+            break;
+        case HR_3:
+            *keycode = KC_D;
+            break;
+        case HR_4:
+            *keycode = KC_F;
+            break;
+        case HR_7:
+            *keycode = KC_J;
+            break;
+        case HR_8:
+            *keycode = KC_K;
+            break;
         case HR_9:
             *keycode = KC_L;
+            break;
         default:
             *keycode &= 0xFF; // Get the basic keycode.
-            // SEND_STRING("qui");
      }
      return true;
 }
-
