@@ -1,0 +1,118 @@
+layout:
+  ortho_layout:
+    split: true
+    rows: 3
+    columns: 5
+    thumbs: 1
+layers:
+  DEF:
+    - [Q, W, E, R, T, Y, U, I, O, P]
+    - [
+        { h: Cmd, t: A },
+        { h: Alt, t: S },
+        { h: Ctrl, t: D },
+        { h: Shift, t: F },
+        G,
+        H,
+        { h: Shift, t: J },
+        { h: Ctrl, t: K },
+        { h: Alt, t: L },
+        { h: Cmd, t: ";", s: ":" },
+      ]
+    - [
+        Z,
+        X,
+        C,
+        V,
+        B,
+        N,
+        M,
+        { t: ",", s: "<" },
+        { t: ".", s: ">" },
+        { t: "/", s: "?" },
+      ]
+    - { h: NAV, t: SPC }
+    - { t: BSPC }
+  NAV:
+    - ["", "", "", "", "", "", "", "", "", ""]
+    - ["Home", "PgDn", "PgUp", "Shift", "", "Sx", "Dn", "Up", "Dx", "End"]
+    - ["Undo", "Cut", "Copy", "Paste", "Redo", "", "", "", "", ""]
+    - { type: "held" }
+    - { t: DEL }
+  NUM:
+    - ["", "", "", "", "", "*", "7", "8", "9", ""]
+    - [
+        "Cmd",
+        { type: "held" },
+        { type: "held" },
+        "0",
+        "",
+        "-",
+        "4",
+        "5",
+        "6",
+        "+",
+      ]
+    - ["", "", "", "", "", "", "1", "2", { s: ".", t: "3" }, "/"]
+    - { t: "" }
+    - { t: "" }
+  MEH:
+    - ["MEH-Q", "MEH-W", "MEH-E", "MEH-R", "MEH-T", "", "", "", "", ""]
+    - [
+        "MEH-A",
+        "MEH-S",
+        "MEH-D",
+        "MEH-F",
+        "MEH-G",
+        "",
+        "",
+        { type: "held" },
+        { type: "held" },
+        "",
+      ]
+    - ["", "", "", "", "", "", "", "", "", ""]
+    - { t: "" }
+    - { t: "" }
+  combos:
+    - ["", "", "", "", "", "", "", "", "", ""]
+    - ["", "", "", "", "", "", "", "", "", ""]
+    - ["", "", "", "", "", "", "", "", "", ""]
+    - { t: "" }
+    - { t: "" }
+  combos_shifted:
+    - ["", "", "", "", "", "", "", "", "", ""]
+    - ["", "", "", "", "", "", "", "", "", ""]
+    - ["", "", "", "", "", "", "", "", "", ""]
+    - { t: "" }
+    - { t: "" }
+combos:
+  - { l: ["combos"], p: [0, 1], k: "~" }
+  - { l: ["combos_shifted"], p: [0, 1], k: ":wq" }
+  - { l: ["combos"], p: [1, 2], k: "@" }
+  - { l: ["combos_shifted"], p: [1, 2], k: "!" }
+  - { l: ["combos"], p: [2, 3], k: "&" }
+  - { l: ["combos_shifted"], p: [2, 3], k: "*" }
+  - { l: ["combos"], p: [12, 13], k: ENT }
+  - { l: ["combos"], p: [2, 12], k: "#" }
+  - { l: ["combos"], p: [3, 13], k: "|" }
+  - { l: ["combos_shifted"], p: [3, 13], k: "||" }
+  - { l: ["combos_shifted"], p: [12, 13], k: "=" }
+  - { l: ["combos"], p: [21, 22], k: "^" }
+  - { l: ["combos_shifted"], p: [21, 22], k: "$" }
+  - { l: ["combos_shifted"], p: [22, 23], k: "%" }
+  - { l: ["combos"], p: [22, 23], k: "\\" }
+  - { l: ["combos"], p: [6, 7], k: '"' }
+  - { l: ["combos_shifted"], p: [6, 7], k: '""' }
+  - { l: ["combos"], p: [7, 8], k: "_" }
+  - { l: ["combos_shifted"], p: [7, 8], k: "-" }
+  - { l: ["combos"], p: [6, 16], k: "(" }
+  - { l: ["combos"], p: [7, 17], k: "{" }
+  - { l: ["combos"], p: [8, 18], k: "[" }
+  - { l: ["combos_shifted"], p: [6, 16], k: ")" }
+  - { l: ["combos_shifted"], p: [7, 17], k: "}" }
+  - { l: ["combos_shifted"], p: [8, 18], k: "]" }
+  - { l: ["combos_shifted"], p: [16, 17], k: ESC }
+  - { l: ["combos"], p: [16, 17], k: TAB }
+  - { l: ["combos"], p: [26, 27], k: "'" }
+  - { l: ["combos_shifted"], p: [26, 27], k: "''" }
+  - { l: ["combos"], p: [27, 28], k: "::" }
