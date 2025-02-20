@@ -16,19 +16,14 @@
 
 #pragma once
 
-// Not yet available in `keymap.json` format
-#ifdef RGB_MATRIX_ENABLE
-#    define RGB_MATRIX_SLEEP
-#    define RGB_MATRIX_KEYPRESSES
-#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
-#    define ENABLE_RGB_MATRIX_SOLID_SPLASH
-#    define ENABLE_RGB_MATRIX_RAINBOW_BEACON 
-#endif
+#define TAPPING_TERM            300
+#define QUICK_TAP_TERM          0
+#define TAPPING_TERM_PER_KEY
 
-// Not yet available in `keymap.json` format
-#ifdef MOUSEKEY_ENABLE
-     // The default is 100
-#    define MOUSEKEY_WHEEL_INTERVAL 50
-     // The default is 40
-#    define MOUSEKEY_WHEEL_TIME_TO_MAX 100
-#endif
+#define COMBO_ONLY_FROM_LAYER   0
+#define COMBO_TERM              20
+
+#define RETRO_SHIFT             600
+#define AUTO_SHIFT_TIMEOUT      300
+#define NO_AUTO_SHIFT_SYMBOLS
+#define NO_AUTO_SHIFT_NUMERIC
