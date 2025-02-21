@@ -22,13 +22,13 @@ enum combos{
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM c_tab[] = {_HR_8, _HR_9, COMBO_END};
-const uint16_t PROGMEM c_enter[] = {_HR_3, _HR_4, COMBO_END};
-const uint16_t PROGMEM c_esc[] = {_HR_7, _HR_8, COMBO_END};
-const uint16_t PROGMEM c_eql[] = {_HR_2, _HR_3, COMBO_END};
-const uint16_t PROGMEM c_cw_togg[] = {_HR_4, _HR_7, COMBO_END};
+const uint16_t PROGMEM c_enter[] = {_HR_2, _HR_3, COMBO_END};
+const uint16_t PROGMEM c_esc[] = {_HR_6, _HR_7, COMBO_END};
+const uint16_t PROGMEM c_eql[] = {_HR_1, _HR_2, COMBO_END};
+const uint16_t PROGMEM c_cw_togg[] = {_HR_3, _HR_6, COMBO_END};
 const uint16_t PROGMEM c_diamond[] = {_COMM, _DOT, COMBO_END};
-const uint16_t PROGMEM c_happy[] = {_HR_7, _HR_8, _HR_9, COMBO_END};
-const uint16_t PROGMEM c_sad[] = {_HR_2, _HR_3, _HR_4, COMBO_END};
+const uint16_t PROGMEM c_happy[] = {_HR_6, _HR_7, _HR_8, COMBO_END};
+const uint16_t PROGMEM c_sad[] = {_HR_1, _HR_2, _HR_3, COMBO_END};
 const uint16_t PROGMEM c_exlm[] = {_T_E, KC_R, COMBO_END};
 const uint16_t PROGMEM c_tild[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM c_hash[] = {KC_M, _COMM, COMBO_END};
