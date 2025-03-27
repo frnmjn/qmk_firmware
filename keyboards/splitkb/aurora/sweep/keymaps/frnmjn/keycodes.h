@@ -1,3 +1,8 @@
+
+#define DEF 0
+#define NAV 1
+#define NUM 2
+
 #define _ALT KC_LALT
 #define _AMPR IT_AMPR
 #define _ASTR IT_ASTR
@@ -21,8 +26,8 @@
 #define _ESC KC_ESC
 #define _EQL IT_EQL
 #define _EXLM IT_EXLM
-#define _NOR LT(1, _SPC)
-#define _NUM MO(2)
+#define _NOR LT(NAV, _SPC)
+#define _NUM MO(NUM)
 #define _GRV IT_GRV
 #define _HOME LCMD(KC_LEFT)
 #define _HR_0 LCMD_T(KC_A)

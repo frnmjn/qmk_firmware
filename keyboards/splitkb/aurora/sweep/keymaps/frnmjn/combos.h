@@ -6,6 +6,7 @@ enum combos{
   C_EQL,
   C_CW_TOGG,
   C_DIAMOND,
+  C_ZERO,
   C_HAPPY,
   C_SAD,
   C_EXLM,
@@ -27,8 +28,9 @@ const uint16_t PROGMEM c_esc[]      = {_HR_6, _HR_7, COMBO_END};
 const uint16_t PROGMEM c_eql[]      = {_HR_1, _HR_2, COMBO_END};
 const uint16_t PROGMEM c_cw_togg[]  = {_HR_3, _HR_6, COMBO_END};
 const uint16_t PROGMEM c_diamond[]  = {_COMM, _DOT, COMBO_END};
-const uint16_t PROGMEM c_happy[]    = {_HR_6, _HR_7, _HR_8, COMBO_END};
-const uint16_t PROGMEM c_sad[]      = {_HR_1, _HR_2, _HR_3, COMBO_END};
+const uint16_t PROGMEM c_zero[]     = {_HR_6, _HR_7, _HR_8, COMBO_END};
+const uint16_t PROGMEM c_happy[]    = {KC_X, KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM c_sad[]      = {KC_M, _COMM, _DOT, COMBO_END};
 const uint16_t PROGMEM c_exlm[]     = {_T_E, KC_R, COMBO_END};
 const uint16_t PROGMEM c_tild[]     = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM c_hash[]     = {KC_M, _COMM, COMBO_END};
@@ -47,7 +49,8 @@ combo_t key_combos[] = {
   [C_DIAMOND] = COMBO_ACTION(c_diamond),
   [C_HAPPY] = COMBO_ACTION(c_happy),
   [C_SAD] = COMBO_ACTION(c_sad),
-  [C_EXLM] = COMBO_ACTION(c_exlm),
+  [C_ZERO] = COMBO(c_zero, KC_0),
+  [C_EXLM] = COMBO(c_exlm, _EXLM),
   [C_TILD] = COMBO_ACTION(c_tild),
   [C_HASH] = COMBO_ACTION(c_hash),
   [C_AT] = COMBO_ACTION(c_at),

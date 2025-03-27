@@ -1,6 +1,14 @@
 bool caps_word_press_user(uint16_t keycode) {
     switch (keycode) {
         // Keycodes that continue Caps Word, with shift applied.
+        case _HR_0:
+        case _HR_1:
+        case _HR_2:
+        case _HR_3:
+        case _HR_6:
+        case _HR_7:
+        case _HR_8:
+        case _HR_9:
         case KC_A ... KC_Z:
         case _T_E:
             add_weak_mods(MOD_BIT(KC_LSFT)); // Apply shift to next key.
@@ -20,13 +28,6 @@ bool caps_word_press_user(uint16_t keycode) {
 
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case _HR_0:
-        case _HR_1:
-        case _HR_2:
-        case _HR_3:
-        case _HR_6:
-        case _HR_7:
-        case _HR_8:
         case _HR_9:
         case _COMM:
         case _DOT:
@@ -58,13 +59,13 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
             register_code16((!shifted) ? _CIRC : _DLR);
             break;
         case _ESC:
-            register_code16((!shifted) ? _ESC : _AMPR);
+            register_code16((!shifted) ? _ESC : _MEH);
             break;
         case _SLSH:
             register_code16((!shifted) ? _SLSH : IT_QUES);
             break;
         case _ENT:
-            register_code16((!shifted) ? _ENT : _ASTR);
+            register_code16((!shifted) ? _ENT : _NUM);
             break;
         case _MINS:
             if (!shifted)
