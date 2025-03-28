@@ -28,6 +28,13 @@ bool caps_word_press_user(uint16_t keycode) {
 
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case _HR_0:
+        case _HR_1:
+        case _HR_2:
+        case _HR_3:
+        case _HR_6:
+        case _HR_7:
+        case _HR_8:
         case _HR_9:
         case _COMM:
         case _DOT:
