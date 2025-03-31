@@ -51,8 +51,8 @@ combo_t key_combos[] = {
   [C_DIAMOND] = COMBO_ACTION(c_diamond),
   [C_HAPPY] = COMBO_ACTION(c_happy),
   [C_SAD] = COMBO_ACTION(c_sad),
-  [C_MIX] = COMBO(c_mix, _MIX),
-  [C_NUM] = COMBO(c_mix, _NUM),
+  [C_MIX] = COMBO_ACTION(c_mix),
+  [C_NUM] = COMBO(c_num, _NUM),
   [C_EXLM] = COMBO(c_exlm, _EXLM),
   [C_TILD] = COMBO_ACTION(c_tild),
   [C_HASH] = COMBO_ACTION(c_hash),
@@ -65,6 +65,13 @@ combo_t key_combos[] = {
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
   switch(combo_index) {
+    case C_MIX:
+            if (pressed) {
+                layer_move(MIX);
+            } else {
+               layer_clear();
+            }
+            break;
     case C_CW_TOGG:
       if (pressed) {
         caps_word_on();
