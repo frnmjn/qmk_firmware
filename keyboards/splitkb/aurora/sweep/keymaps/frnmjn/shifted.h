@@ -67,13 +67,13 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
             register_code16((!shifted) ? _CIRC : _DLR);
             break;
         case _ESC:
-            register_code16((!shifted) ? _ESC : _MEH);
+            register_code16((!shifted) ? _ESC : _AMPR);
             break;
         case _SLSH:
             register_code16((!shifted) ? _SLSH : IT_QUES);
             break;
         case _ENT:
-            register_code16((!shifted) ? _ENT : _NUM);
+            register_code16((!shifted) ? _ENT : _ASTR);
             break;
         case _MINS:
             if (!shifted)
@@ -127,7 +127,7 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
             unregister_code16((!shifted) ? _CIRC : _DLR);
             break;
         case _ESC:
-            unregister_code16((!shifted) ? _ESC : _MEH);
+            unregister_code16((!shifted) ? _ESC : _ASTR);
             break;
         case _SLSH:
             unregister_code16((!shifted) ? _SLSH : IT_QUES);

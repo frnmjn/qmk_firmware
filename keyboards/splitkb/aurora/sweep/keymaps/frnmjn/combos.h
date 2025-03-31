@@ -17,6 +17,7 @@ enum combos{
   C_BSLS,
   C_MINS,
   C_MIX,
+  C_NUM,
   COMBO_LENGTH
 };
 
@@ -29,6 +30,7 @@ const uint16_t PROGMEM c_eql[]      = {_HR_1, _HR_2, COMBO_END};
 const uint16_t PROGMEM c_cw_togg[]  = {_HR_3, _HR_6, COMBO_END};
 const uint16_t PROGMEM c_diamond[]  = {_COMM, _DOT, COMBO_END};
 const uint16_t PROGMEM c_mix[]      = {_HR_6, _HR_7, _HR_8, COMBO_END};
+const uint16_t PROGMEM c_num[]      = {_HR_1, _HR_2, _HR_3, COMBO_END};
 const uint16_t PROGMEM c_happy[]    = {KC_X, KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM c_sad[]      = {KC_M, _COMM, _DOT, COMBO_END};
 const uint16_t PROGMEM c_exlm[]     = {_T_E, KC_R, COMBO_END};
@@ -50,6 +52,7 @@ combo_t key_combos[] = {
   [C_HAPPY] = COMBO_ACTION(c_happy),
   [C_SAD] = COMBO_ACTION(c_sad),
   [C_MIX] = COMBO(c_mix, _MIX),
+  [C_NUM] = COMBO(c_mix, _NUM),
   [C_EXLM] = COMBO(c_exlm, _EXLM),
   [C_TILD] = COMBO_ACTION(c_tild),
   [C_HASH] = COMBO_ACTION(c_hash),

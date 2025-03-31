@@ -78,3 +78,8 @@
 #define _MEH KC_MEH
 #define _SX KC_LEFT
 #define _UP KC_UP
+#define _MEH_A MEH(KC_A)
+#define _MEH_S MEH(KC_S)
+#define _MEH_D MEH(KC_D)
+#define _MEH_F MEH(KC_F)
+#define _MEH_G MEH(KC_G)
