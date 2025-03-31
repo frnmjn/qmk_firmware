@@ -133,7 +133,7 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
             unregister_code16((!shifted) ? _SLSH : IT_QUES);
             break;
         case _ENT:
-            unregister_code16((!shifted) ? _ENT : _ASTR);
+            unregister_code16((!shifted) ? _ENT : _NUM);
             break;
         case _MINS:
             if (!shifted)
