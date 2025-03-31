@@ -101,7 +101,10 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
             }
             break;
         case _EQL:
-            register_code16((!shifted) ? _EQL : _NUM);
+            if (!shifted)
+                register_code16(_EQL);
+            else
+                layer_move(NUM);
             break;
         default:
             if (shifted) {
@@ -161,7 +164,10 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
             }
             break;
         case _EQL:
-            unregister_code16((!shifted) ? _EQL : _NUM);
+            if (!shifted)
+                unregister_code16(_EQL);
+            else
+                layer_clear();
             break;
         default:
             // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
