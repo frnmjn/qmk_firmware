@@ -187,11 +187,22 @@ static td_tap_t td_three_state = {
 void three_finished(tap_dance_state_t *state, void *user_data) {
     td_three_state.state = cur_dance(state);
     switch (td_three_state.state) {
+        case TD_SINGLE_TAP:
+            SEND_STRING("3"); 
+            break;
         case TD_SINGLE_HOLD:
             SEND_STRING(".");
             break;
+        case TD_DOUBLE_TAP:
+        case TD_DOUBLE_HOLD:
+        case TD_DOUBLE_SINGLE_TAP:
+            SEND_STRING("33"); 
+            break;
+        case TD_TRIPLE_TAP:
+        case TD_TRIPLE_HOLD:
+            SEND_STRING("333"); 
+            break; 
         default:
-            SEND_STRING("3");
             break;
     }
 }
