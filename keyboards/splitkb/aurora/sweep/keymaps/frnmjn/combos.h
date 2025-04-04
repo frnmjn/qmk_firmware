@@ -54,7 +54,7 @@ combo_t key_combos[] = {
   [C_MIX] = COMBO_ACTION(c_mix),
   [C_NUM] = COMBO_ACTION(c_num),
   [C_EXLM] = COMBO(c_exlm, _EXLM),
-  [C_TILD] = COMBO_ACTION(c_tild),
+  [C_TILD] = COMBO(c_tild, KC_TILD),
   [C_HASH] = COMBO_ACTION(c_hash),
   [C_AT] = COMBO_ACTION(c_at),
   [C_REGEX] = COMBO(c_regex, _CIRC),
@@ -104,11 +104,11 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 		    SEND_STRING("!");
       }
       break;
-    case C_TILD:
-      if (pressed) {
-		    SEND_STRING("~");
-      }
-      break;
+    // case C_TILD:
+    //   if (pressed) {
+		//     SEND_STRING("~");
+    //   }
+    //   break;
     case C_HASH:
       if (pressed) {
 		    SEND_STRING("#");
