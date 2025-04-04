@@ -61,7 +61,7 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
             register_code16((!shifted) ? _COMM : IT_LABK);
             break;
         case _DOT:
-            register_code16((!shifted) ? _DOT : _IT_RABK);
+            register_code16((!shifted) ? _DOT : IT_RABK);
             break;
         case _CIRC:
             register_code16((!shifted) ? _CIRC : _DLR);

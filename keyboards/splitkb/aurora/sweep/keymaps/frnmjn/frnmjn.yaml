@@ -34,8 +34,8 @@ layers:
     - { h: NAV, t: SPC }
     - { t: BSPC }
   NAV:
-    - ["", "", "", "", "", "", "", "", "", ""]
-    - ["Home", "", "", "Shift", "", "Sx", "Dn", "Up", "Dx", "End"]
+    - ["", "", "", "", "PgUp", "", "", "", "", ""]
+    - ["Home", "", "", "Shift", "PgDn", "Sx", "Dn", "Up", "Dx", "End"]
     - ["", "", "", "", "", "", "", "", "", ""]
     - { type: "held" }
     - { t: DEL }
@@ -46,7 +46,7 @@ layers:
     - { t: "" }
     - { t: "" }
   MIX:
-    - ["MEH-Q", "", "MEH-E", "", "MEH-T", "", "", "", "", ""]
+    - ["MEH-Q", "MEH-W", "MEH-E", "MEH-R", "MEH-T", "", "", "", "", ""]
     - [
         "MEH-A",
         "MEH-S",
@@ -54,9 +54,9 @@ layers:
         "MEH-F",
         "MEH-G",
         "",
-        { type: "held" },
-        { type: "held" },
         "",
+        { type: "held" },
+        { type: "held" },
         "",
       ]
     - ["Undo", "Cut", "Copy", "Paste", "Redo", "", "", "", "", ""]
@@ -100,21 +100,20 @@ combos:
   - { l: ["combos_2_shifted"], p: [21, 22], k: "$" }
   - { l: ["combos_2"], p: [22, 23], k: "\\" }
   - { l: ["combos_3"], p: [21, 22, 23], k: ":-(" }
-
   - { l: ["combos_2"], p: [6, 7], k: "_" }
   - { l: ["combos_2_shifted"], p: [6, 7], k: "-" }
   - { l: ["combos_2"], p: [7, 8], k: "|" }
   - { l: ["combos_2_shifted"], p: [7, 8], k: "||" }
   - { l: ["combos_2"], p: [6, 16], k: "(" }
   - { l: ["combos_2"], p: [7, 17], k: "{" }
-  - { l: ["combos_2"], p: [8, 18], k: "[" }
+  - { l: ["combos_2"], p: [8, 18], k: "[" } 
   - { l: ["combos_2_shifted"], p: [6, 16], k: ")" }
   - { l: ["combos_2_shifted"], p: [7, 17], k: "}" }
   - { l: ["combos_2_shifted"], p: [8, 18], k: "]" }
   - { l: ["combos_3"], p: [16, 17, 18], k: ESC }
   - { l: ["combos_3_shifted"], p: [16, 17, 18], k: "=" }
   - { l: ["combos_3"], p: [11, 12, 13], k: "&" }
-  - { l: ["combos_2"], p: [17, 18], k: TAB }
+  - { l: ["combos_2"], p: [16, 17], k: TAB }
   - { l: ["combos_2"], p: [17, 27], k: "'" }
   - { l: ["combos_2_shifted"], p: [16, 26], k: '""' }
   - { l: ["combos_2"], p: [16, 26], k: '"' }

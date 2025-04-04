@@ -20,13 +20,11 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, ui
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case _T_E:
-        case _COMM:
+        case _HR_0:
+        case _CMD:
+        case _T_CB:
         case _DOT:
         case _SLSH:
-        case _T_RB:
-        case _T_SB:
-        case _T_CB:
         case _T_PERC:
         case _T_PIPE:
             return TAPPING_TERM + 50;

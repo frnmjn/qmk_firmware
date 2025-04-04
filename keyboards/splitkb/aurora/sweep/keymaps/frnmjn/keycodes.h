@@ -87,4 +87,5 @@
 #define _MEH_G MEH(KC_G)
 #define _MEH_E MEH(KC_E)
 #define _MEH_Q MEH(KC_Q)
+#define _MEH_W MEH(KC_W)
 #define _MEH_T MEH(KC_T)
