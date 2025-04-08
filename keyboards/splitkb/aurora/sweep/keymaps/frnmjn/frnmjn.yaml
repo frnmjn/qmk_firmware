@@ -36,7 +36,7 @@ layers:
   NAV:
     - ["", "", "", "", "", "", "", "", "", ""]
     - ["Home", "PgDn", "PgUp", "Shift", "", "Sx", "Dn", "Up", "Dx", "End"]
-    - ["", "", "", "", "", "", "", "", "", ""]
+    - ["Undo", "Cut", "Copy", "Paste", "Redo", "", "", "", "", ""]
     - { type: "held" }
     - { t: DEL }
   NUM:
@@ -59,7 +59,7 @@ layers:
         { type: "held" },
         "",
       ]
-    - ["Undo", "Cut", "Copy", "Paste", "Redo", "", "", "", "", ""]
+    - ["", "", "", "", "", "", "", "", "", ""]
     - { t: "" }
     - { t: "" }
   combos_2:
