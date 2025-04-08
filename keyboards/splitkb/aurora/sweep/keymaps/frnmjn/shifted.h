@@ -44,8 +44,8 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
         case _ENT:
         case _MINS:
         case _UNDS:
-        case _TAB:
-        case _EQL:
+        // case _TAB:
+        // case _EQL:
         case KC_TILD:
             return true;
         default:
@@ -55,11 +55,12 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 
 void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch (keycode) {
-        case KC_TILD:
+        case IT_TILD:
             if (!shifted)
-                register_code16(KC_TILD);
+                register_code16(IT_TILD);
             else {
                 register_code16(KC_ESC);
+                clear_weak_mods();
                 register_code16(IT_COLN);
                 register_code16(KC_W);
                 register_code16(KC_Q);
@@ -102,21 +103,15 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
                 register_code16(IT_RABK);
             }
             break;
-        case _TAB:
-            if (!shifted)
-                register_code16(_TAB);
-            else {
-                register_code16(_CMD);
-                register_code16(_SFT);
-                register_code16(KC_A);
-            }
-            break;
-        case _EQL:
-            if (!shifted)
-                register_code16(_EQL);
-            else
-                layer_move(NUM);
-            break;
+        // case _TAB:
+        //     if (!shifted)
+        //         register_code16(_TAB);
+        //     else {
+        //         register_code16(_CMD);
+        //         register_code16(_SFT);
+        //         register_code16(KC_A);
+        //     }
+        //     break;
         default:
             if (shifted) {
                 add_weak_mods(MOD_BIT(KC_LSFT));
@@ -128,7 +123,7 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
 
 void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch (keycode) {
-        case KC_TILD:
+        case IT_TILD:
             if (!shifted)
                 unregister_code16(KC_TILD);
             else {
@@ -175,21 +170,15 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
                 unregister_code16(IT_RABK);
             }
             break;
-        case _TAB:
-            if (!shifted)
-                unregister_code16(_TAB);
-            else {
-                unregister_code16(_CMD);
-                unregister_code16(_SFT);
-                unregister_code16(KC_A);
-            }
-            break;
-        case _EQL:
-            if (!shifted)
-                unregister_code16(_EQL);
-            else
-                layer_clear();
-            break;
+        // case _TAB:
+        //     if (!shifted)
+        //         unregister_code16(_TAB);
+        //     else {
+        //         unregister_code16(_CMD);
+        //         unregister_code16(_SFT);
+        //         unregister_code16(KC_A);
+        //     }
+        //     break;
         default:
             // & 0xFF gets the Tap key for Tap Holds, required when using Retro Shift
             // The IS_RETRO check isn't really necessary here, always using
