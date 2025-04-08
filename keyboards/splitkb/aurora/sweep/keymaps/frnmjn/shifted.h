@@ -46,7 +46,7 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
         case _UNDS:
         // case _TAB:
         // case _EQL:
-        case KC_TILD:
+        case _TILD:
             return true;
         default:
             return false;
@@ -55,7 +55,7 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 
 void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch (keycode) {
-        case IT_TILD:
+        case _TILD:
             if (!shifted)
                 register_code16(IT_TILD);
             else {

@@ -21,6 +21,7 @@
 #define _DEL KC_DEL
 #define _DLR IT_DLR
 #define _DOT IT_DOT
+#define _TILD IT_TILD
 #define _DQT IT_DQUO
 #define _END LCMD(KC_RIGHT)
 #define _ENT KC_ENT
