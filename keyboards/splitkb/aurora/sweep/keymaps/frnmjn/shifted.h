@@ -54,14 +54,6 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch (keycode) {
         case _TILD:
-            if (!shifted) {
-                register_code16(KC_ESC);
-                register_code16(IT_COLN);
-                register_code16(KC_W);
-                register_code16(KC_Q);
-            } else {
-                register_code16(_TILD);
-            }
             break;
         case _HR_9:
             register_code16((!shifted) ? _SCLN : _COLN);
@@ -113,12 +105,9 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
     switch (keycode) {
         case _TILD:
             if (!shifted) {
-                unregister_code16(KC_ESC);
-                unregister_code16(IT_COLN);
-                unregister_code16(KC_W);
-                unregister_code16(KC_Q);
+                SEND_STRING("~");
             } else {
-                unregister_code16(_TILD);
+                SEND_STRING(SS_TAP(X_ESC) ":wq");
             }
             break;
         case _HR_9:
