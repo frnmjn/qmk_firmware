@@ -19,6 +19,8 @@ enum combos{
   C_MIX,
   C_NUM,
   C_RB,
+  C_CB,
+  C_SB,
   COMBO_LENGTH
 };
 
@@ -27,7 +29,7 @@ uint16_t COMBO_LEN = COMBO_LENGTH;
 const uint16_t PROGMEM c_tab[]      = {_HR_6, _HR_7, COMBO_END};
 const uint16_t PROGMEM c_enter[]    = {_HR_2, _HR_3, COMBO_END};
 const uint16_t PROGMEM c_esc[]      = {_HR_6, _HR_7, _HR_8, COMBO_END};
-const uint16_t PROGMEM c_eql[]      = {_HR_6, KC_U, COMBO_END};
+const uint16_t PROGMEM c_eql[]      = {_KC_R, _HR_3, COMBO_END};
 const uint16_t PROGMEM c_cw_togg[]  = {_HR_3, _HR_6, COMBO_END};
 const uint16_t PROGMEM c_diamond[]  = {_COMM, _DOT, COMBO_END};
 const uint16_t PROGMEM c_mix[]      = {_HR_7, _HR_8, COMBO_END};
@@ -43,6 +45,8 @@ const uint16_t PROGMEM c_unds[]     = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM c_bsls[]     = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM c_mins[]     = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM c_rb[]       = {KC_U, _HR_6, COMBO_END};
+const uint16_t PROGMEM c_cb[]       = {KC_I, _HR_7, COMBO_END};
+const uint16_t PROGMEM c_sb[]       = {KC_O, _HR_8, COMBO_END};
 
 combo_t key_combos[] = {
   [C_TAB] = COMBO(c_tab, _TAB),
@@ -55,7 +59,7 @@ combo_t key_combos[] = {
   [C_SAD] = COMBO_ACTION(c_sad),
   [C_MIX] = COMBO_ACTION(c_mix),
   [C_NUM] = COMBO_ACTION(c_num),
-  [C_EXLM] = COMBO(c_exlm, _EXLM),
+  [C_EXLM] = COMBO_ACTION(c_exlm),
   [C_TILD] = COMBO(c_tild, _TILD),
   [C_HASH] = COMBO_ACTION(c_hash),
   [C_AT] = COMBO_ACTION(c_at),
@@ -64,6 +68,8 @@ combo_t key_combos[] = {
   [C_BSLS] = COMBO(c_bsls, _BSLS),
   [C_MINS] = COMBO(c_mins, _MINS),
   [C_RB] = COMBO(c_rb, IT_LPRN),
+  [C_CB] = COMBO(c_rb, IT_LCBR),
+  [C_SB] = COMBO(c_rb, IT_LBRC),
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
