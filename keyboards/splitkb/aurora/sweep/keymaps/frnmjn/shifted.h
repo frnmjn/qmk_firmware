@@ -112,13 +112,13 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
 void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch (keycode) {
         case _TILD:
-            if (!shifted)
-                unregister_code16(_TILD);
-            else {
+            if (!shifted) {
                 unregister_code16(KC_ESC);
                 unregister_code16(IT_COLN);
                 unregister_code16(KC_W);
                 unregister_code16(KC_Q);
+            } else {
+                unregister_code16(_TILD);
             }
             break;
         case _HR_9:
