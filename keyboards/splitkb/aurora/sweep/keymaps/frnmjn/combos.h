@@ -68,8 +68,8 @@ combo_t key_combos[] = {
   [C_BSLS] = COMBO(c_bsls, _BSLS),
   [C_MINS] = COMBO(c_mins, _MINS),
   [C_RB] = COMBO(c_rb, IT_LPRN),
-  [C_CB] = COMBO(c_rb, IT_LCBR),
-  [C_SB] = COMBO(c_rb, IT_LBRC),
+  [C_CB] = COMBO(c_cb, IT_LCBR),
+  [C_SB] = COMBO(c_sb, IT_LBRC),
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
