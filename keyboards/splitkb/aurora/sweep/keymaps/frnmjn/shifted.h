@@ -107,7 +107,7 @@ void autoshift_release_user(uint16_t keycode, bool shifted, keyrecord_t *record)
             if (!shifted) {
                 SEND_STRING("~");
             } else {
-                SEND_STRING(SS_TAP(X_ESC) ":wq");
+                SEND_STRING(SS_TAP(X_ESC) ":wq" SS_TAP(X_ENT));
             }
             break;
         case _HR_9:
