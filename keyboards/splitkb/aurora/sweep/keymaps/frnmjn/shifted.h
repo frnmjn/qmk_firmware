@@ -58,7 +58,7 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
                 register_code16(_TILD);
             else {
                 register_code16(KC_ESC);
-                clear_weak_mods();
+                unregister_code16(_SFT);
                 register_code16(IT_COLN);
                 register_code16(KC_W);
                 register_code16(KC_Q);
