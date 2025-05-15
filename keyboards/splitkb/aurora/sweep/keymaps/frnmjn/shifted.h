@@ -50,6 +50,8 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
         case _AMPR:
         case _PIPE:
         case _BSLS:
+        case _DQT:
+        case _QUOT:
         case IT_LCBR:
         case IT_LBRC:
         case IT_LPRN:
@@ -61,6 +63,20 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 
 void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
     switch (keycode) {
+        case _DQT:
+            if (!shifted) {
+                SEND_STRING("\"");
+            } else {
+                SEND_STRING("\"\"" SS_TAP(X_LEFT));
+            }
+            break;
+        case _QUOT:
+            if (!shifted) {
+                SEND_STRING("'");
+            } else {
+                SEND_STRING("''" SS_TAP(X_LEFT));
+            }
+            break;
         case IT_LCBR:
             if (!shifted) {
                 SEND_STRING("{");

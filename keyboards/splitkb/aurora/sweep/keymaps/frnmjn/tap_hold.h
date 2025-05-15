@@ -35,7 +35,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case _AMPR:
         case _BSLS:
         case _CIRC:
-            return TAPPING_TERM - 50;
+            return TAPPING_TERM - 100;
         default:
             return TAPPING_TERM;
     }
