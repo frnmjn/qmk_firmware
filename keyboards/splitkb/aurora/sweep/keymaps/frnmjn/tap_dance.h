@@ -33,28 +33,8 @@ td_state_t cur_dance(tap_dance_state_t *state) {
 }
 
 enum {
-    TD_E,
     TD_3,
 };
-
-static td_tap_t td_e_state = {
-    .is_press_action = true,
-    .state = TD_NONE
-};
-
-void e_finished(tap_dance_state_t *state, void *user_data) {
-    td_e_state.state = cur_dance(state);
-    switch (td_e_state.state) {
-        case TD_SINGLE_TAP: SEND_STRING("e"); break;
-        case TD_SINGLE_HOLD: SEND_STRING("E"); break;
-        case TD_DOUBLE_TAP:
-        case TD_DOUBLE_SINGLE_TAP:
-            SEND_STRING("ee"); break;
-        case TD_DOUBLE_HOLD:
-            SEND_STRING(SS_TAP(X_LBRC)); break;
-        default: break;
-    }
-}
 
 static td_tap_t td_three_state = {
     .is_press_action = true, 
@@ -85,6 +65,5 @@ void three_finished(tap_dance_state_t *state, void *user_data) {
 }
 
 tap_dance_action_t tap_dance_actions[] = {
-    [TD_E] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, e_finished, NULL),
     [TD_3] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, three_finished, NULL),
 };

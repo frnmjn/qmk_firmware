@@ -10,7 +10,6 @@ bool caps_word_press_user(uint16_t keycode) {
         case _HR_8:
         case _HR_9:
         case KC_A ... KC_Z:
-        case _T_E:
             add_weak_mods(MOD_BIT(KC_LSFT)); // Apply shift to next key.
             return true;
 

@@ -73,7 +73,6 @@
 #define _SRC LCTL(KC_R)
 #define _SX KC_LEFT
 #define _T_3 TD(TD_3)
-#define _T_E TD(TD_E)
 #define _TAB KC_TAB
 #define _TILD KC_TILD
 #define _TRNS KC_TRNS
