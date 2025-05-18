@@ -74,9 +74,9 @@ combo_t key_combos[] = {
   [C_BSLS]    = COMBO(c_bsls, _BSLS),
   [C_DQT]     = COMBO(c_dqt, _DQT),
   [C_QUOT]    = COMBO(c_quot, _QUOT),
-  [C_RB]      = COMBO(c_rb, IT_LPRN),
-  [C_CB]      = COMBO(c_cb, IT_LCBR),
-  [C_SB]      = COMBO(c_sb, IT_LBRC),
+  [C_RB]      = COMBO(c_rb, _LPRN),
+  [C_CB]      = COMBO(c_cb, _LCBR),
+  [C_SB]      = COMBO(c_sb, _LBRC),
   [C_F5]      = COMBO(c_f5, KC_F5),
   [C_F12]     = COMBO(c_f12, KC_F12),
 };

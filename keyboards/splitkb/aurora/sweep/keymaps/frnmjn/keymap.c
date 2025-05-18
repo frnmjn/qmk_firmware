@@ -1,7 +1,5 @@
 #include QMK_KEYBOARD_H
 #include "gpio.h"
-#include "keymap_italian_mac_ansi.h"
-#include "sendstring_italian_mac_ansi.h"
 #include "tap_dance.h"
 #include "keycodes.h"
 #include "combos.h"
@@ -14,7 +12,7 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [DEF] = LAYOUT(
     /*   ,-------------------------------------------------.    ,-------------------------------------------------.   */\
-           KC_Q    , KC_W    , _T_E    , KC_R    , KC_T    ,      KC_Y    , KC_U    , KC_I    , KC_O    , KC_P    ,     \
+           KC_Q    , KC_W    , KC_E    , KC_R    , KC_T    ,      KC_Y    , KC_U    , KC_I    , KC_O    , KC_P    ,     \
     /*   |-------------------------------------------------|    |-------------------------------------------------|   */\
            _HR_0   , _HR_1   , _HR_2   , _HR_3   , KC_G    ,      KC_H    , _HR_6   , _HR_7   , _HR_8   , _HR_9   ,     \
     /*   |-------------------------------------------------|    |-------------------------------------------------|   */\

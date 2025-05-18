@@ -26,11 +26,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case _DOT:
         case _SLSH:
             return TAPPING_TERM + 50;
-        case IT_LPRN:
-        case IT_LBRC:
-        case IT_LCBR:
+        case _LPRN:
+        case _LBRC:
+        case _LCBR:
         case _UNDS:
-        case _TAB:
+        case _ESC:
         case _AT:
         case _AMPR:
         case _BSLS:

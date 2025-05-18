@@ -52,9 +52,9 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
         case _BSLS:
         case _DQT:
         case _QUOT:
-        case IT_LCBR:
-        case IT_LBRC:
-        case IT_LPRN:
+        case _LCBR:
+        case _LBRC:
+        case _LPRN:
             return true;
         default:
             return false;
@@ -77,21 +77,21 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
                 SEND_STRING("''" SS_TAP(X_LEFT));
             }
             break;
-        case IT_LCBR:
+        case _LCBR:
             if (!shifted) {
                 SEND_STRING("{");
             } else {
                 SEND_STRING("}");
             }
             break;
-        case IT_LBRC:
+        case _LBRC:
             if (!shifted) {
                 SEND_STRING("[");
             } else {
                 SEND_STRING("]");
             }
             break;
-        case IT_LPRN:
+        case _LPRN:
             if (!shifted) {
                 SEND_STRING("(");
             } else {
@@ -161,11 +161,11 @@ void autoshift_press_user(uint16_t keycode, bool shifted, keyrecord_t *record) {
                 SEND_STRING("$");
             }
             break;
-        case _TAB:
+        case _ESC:
             if (!shifted) {
-                SEND_STRING(SS_TAP(X_TAB));
-            } else {
                 SEND_STRING(SS_TAP(X_ESC));
+            } else {
+                SEND_STRING(SS_TAP(X_TAB));
             }
             break;
         case _SLSH:
