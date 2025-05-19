@@ -1,5 +1,6 @@
 // clang-format off
 enum combos{
+  C_TAB,
   C_ENTER,
   C_ESC,
   C_PIPE,
@@ -28,6 +29,7 @@ enum combos{
 
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
+const uint16_t PROGMEM c_tab[]      = {_HR_6, _HR_7, _HR_8, COMBO_END};
 const uint16_t PROGMEM c_enter[]    = {_HR_2, _HR_3, COMBO_END};
 const uint16_t PROGMEM c_esc[]      = {_HR_6, _HR_7, COMBO_END};
 const uint16_t PROGMEM c_pipe[]     = {KC_R, _HR_3, COMBO_END};
@@ -53,6 +55,7 @@ const uint16_t PROGMEM c_f5[]       = {_HR_0, _HR_1, _HR_2, _HR_3, COMBO_END};
 const uint16_t PROGMEM c_f12[]      = {_HR_6, _HR_7, _HR_8, _HR_9, COMBO_END};
 
 combo_t key_combos[] = {
+  [C_TAB]     = COMBO(c_tab, _TAB),
   [C_ENTER]   = COMBO(c_enter, _ENT),
   [C_ESC]     = COMBO(c_esc, _ESC),
   [C_PIPE]    = COMBO(c_pipe, _PIPE),
