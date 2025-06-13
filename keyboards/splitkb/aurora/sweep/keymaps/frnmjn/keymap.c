@@ -6,7 +6,7 @@
 #include "features/achordion.h"
 #include "tap_hold.h"
 #include "shifted.h"
-// #include "override.h"
+#include "override.h"
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
