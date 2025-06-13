@@ -1,6 +1,6 @@
-const key_override_t esc = ko_make_basic(KC_J, KC_J, KC_ESC);
+const key_override_t default = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 
 // This globally defines all key overrides to be used
 const key_override_t *key_overrides[] = {
-    &esc,
+    &del,
 };
